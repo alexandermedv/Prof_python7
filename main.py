@@ -41,17 +41,16 @@ class Stack():
 
 if __name__ == '__main__':
 
-    pairs = {'{': '}', '}': '{', '(': ')', ')': '(', '[': ']', ']': '['}
+    pairs = {'{': '}', '(': ')', '[': ']'}
     string = input('Введите строку\n')
     stack1 = Stack()
     stack2 = Stack()
 
     for symbol in string:
         stack1.push(symbol)
-    print(stack1.size())
 
     while stack1.size() > 0:
-        if pairs[stack1.peek()] == stack2.peek():
+        if stack1.peek() in pairs and pairs[stack1.peek()] == stack2.peek():
             stack1.pop()
             stack2.pop()
         else:
